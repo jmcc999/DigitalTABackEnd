@@ -6,11 +6,18 @@ const express = require('express')
 //express instance 
 const app = express()
 
+//dotenv
+require("dotenv").config()
+
 //port
 const PORT = process.env.PORT || 3000
 
-//DB connection
 
+// setup SESSION_SECRET Here
+
+
+//DB connection
+const mongoose = require('mongoose')
 
 //Middleware
 // app.use(cors(corsOptions))
@@ -19,7 +26,8 @@ app.use(express.urlencoded({extended: true}))
 
 //routes to be moved  app.use('/', routes.)
 app.get('/', (req, res) => {
-    res.send(`<h1>Calendar Goes Here</h1>`)
+    //change later
+    res.send(`<h1>Stuff Goes Here</h1>`)
     console.log("working")
 })
 

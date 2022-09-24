@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/jmcc999/DigitalTABackEnd#readme",
   "dependencies": {
-    "express": "^4.18.1"
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "mongoose": "^6.6.1"
   }
 }
