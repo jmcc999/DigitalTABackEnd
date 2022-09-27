@@ -17,11 +17,8 @@ const PORT = process.env.PORT || 3000
 
 
 //DB connection
-const mongoose = require('mongoose')
-const db =mongoose.connection
-mongoose.connect(process.env.MONGODB_URI).then(() => {
-    console.log(`Mongodb connected at ${db.host}:${db.port}`)
-}).catch((err) => console.log(err))
+require('./config/db.connection')
+
 
 //Middleware
 // app.use(cors(corsOptions))
@@ -34,6 +31,7 @@ app.get('/', (req, res) => {
     res.send(`<h1>Stuff Goes Here</h1>`)
     console.log("working")
 })
+
 
 
 //listener
