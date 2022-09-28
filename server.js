@@ -1,8 +1,17 @@
 
+//dotenv
+require('dotenv').config()
+
+
 //external modules
 const express = require('express')
 
-const bcrypt = require('bcrypt')
+
+//internal modules
+const routes = require('./routes');
+
+
+// const bcrypt = require('bcrypt')
 
 
 //import cors
@@ -16,8 +25,6 @@ const session = require('express-session')
 //express instance 
 const app = express()
 
-//dotenv
-require("dotenv").config()
 
 //port
 const PORT = process.env.PORT || 3000
@@ -65,13 +72,16 @@ const isAuthenticated = (req, res, next) => {
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
-//routes to be moved  app.use('/', routes.)
+//routes to be moved
 app.get('/', (req, res) => {
     //change later
-    res.send(`<h1>Stuff Goes Here</h1>`)
+    res.send('Stuff Goes Here')
     console.log("working")
 })
 
+// app.use('/activities', routes.activities);
+// app.use('/activities', isAuthenticated, routes.activities);
+// app.use('/users', routes.users);
 
 
 //listener
