@@ -79,7 +79,7 @@ app.get('/', (req, res) => {
     console.log("working")
 })
 
-// app.use('/activities', routes.activities);
+// app.use('/activities', routes.activities)
 // app.use('/activities', isAuthenticated, routes.activities);
 // app.use('/users', routes.users);
 

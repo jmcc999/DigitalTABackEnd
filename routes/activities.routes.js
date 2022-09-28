@@ -4,3 +4,5 @@ const router = express.Router()
 const ctrls = require('../controllers')
 
 router.get('/', ctrls.activities.index)
+
+module.exports = router
