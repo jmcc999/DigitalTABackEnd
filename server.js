@@ -11,8 +11,7 @@ const express = require('express')
 const routes = require('./routes');
 
 
-// const bcrypt = require('bcrypt')
-
+const bcrypt = require('bcrypt')
 
 //import cors
 const cors = require('cors')
@@ -20,11 +19,8 @@ const cors = require('cors')
 // setup SESSION_SECRET Here
 const session = require('express-session')
 
-
-
 //express instance 
 const app = express()
-
 
 //port
 const PORT = process.env.PORT || 3000
@@ -52,6 +48,8 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
+app.set('trust proxy', 1)
+
 app.use(
 	session({
 		secret: process.env.SESSION_SECRET,
@@ -68,26 +66,35 @@ const isAuthenticated = (req, res, next) => {
 	}
 }
 
-
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
-//routes to be moved
+//routes 
 app.get('/', (req, res) => {
     //change later
-    res.send('Stuff Goes Here')
-    console.log("working")
+    res.send('Calendar Goes Here')
+console.log("working")
 })
 
-// app.use('/activities', routes.activities)
-// app.use('/activities', isAuthenticated, routes.activities);
-// app.use('/users', routes.users);
+//user routes
+// app.get('/signup', (req, res) => {
+// 	res.send(`<h1>signup here</h1>`)
+// })
 
+// app.get('/login', (req, res) => {
+// 	res.send(`<h1>login here</h1>`)
+// })
+
+// app.get('/logout', (req, res) => {
+// 	res.send(`<h1>logout here</h1>`)
+// })
+
+app.use('/activities', routes.activities)
+// app.use('/activities', isAuthenticated, routes.activities);
+app.use('/users', routes.users);
 
 //listener
 
 app.listen(PORT, () => {
     console.log('listening to ', PORT)
   })
-
-
