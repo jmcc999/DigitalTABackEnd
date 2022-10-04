@@ -27,6 +27,8 @@ const PORT = process.env.PORT || 3000
 
 
 //DB connection
+const MongoDBStore = require('connect-mongodb-session')(session)
+
 require('./config/db.connection')
 
 
@@ -55,6 +57,14 @@ app.use(
 		secret: process.env.SESSION_SECRET,
 		resave: false,
 		saveUninitialized: false,
+		store: new MongoDBStore({
+			uri: process.env.MONGODB_URI,
+			collection: 'users'
+		  }),
+		  cookie: {
+			sameSite: 'none',
+			secure: true
+		  }
 	})
 )
 
@@ -89,8 +99,8 @@ console.log("working")
 // 	res.send(`<h1>logout here</h1>`)
 // })
 
-app.use('/activities', routes.activities)
-// app.use('/activities', isAuthenticated, routes.activities);
+// app.use('/activities', routes.activities)
+app.use('/activities', isAuthenticated, routes.activities);
 app.use('/users', routes.users);
 
 //listener
