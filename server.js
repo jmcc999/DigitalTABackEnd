@@ -23,7 +23,7 @@ const session = require('express-session')
 const app = express()
 
 //port
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3001
 
 
 //DB connection
@@ -33,7 +33,7 @@ require('./config/db.connection')
 
 
 //Middleware
-const whitelist = ['http://localhost:3000', `${process.env.FRONTEND_URL}`]
+const whitelist = ['http://localhost:3001', `${process.env.FRONTEND_URL}`]
 const corsOptions = {
 	origin: (origin, callback) => {
 		console.log(whitelist, "WHITELIST")
