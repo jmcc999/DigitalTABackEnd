@@ -2,14 +2,11 @@
 //dotenv
 require('dotenv').config()
 
-
 //external modules
 const express = require('express')
 
-
 //internal modules
 const routes = require('./routes');
-
 
 const bcrypt = require('bcrypt')
 
@@ -25,12 +22,10 @@ const app = express()
 //port
 const PORT = process.env.PORT || 3001
 
-
 //DB connection
 const MongoDBStore = require('connect-mongodb-session')(session)
 
 require('./config/db.connection')
-
 
 //Middleware
 const whitelist = ['http://localhost:3001', `${process.env.FRONTEND_URL}`]

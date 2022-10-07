@@ -21,9 +21,9 @@ const create = (req, res) => {
 //destroy a single Activity by its ID
 const destroy = (req, res) => {
     db.Activity.findByIdAndDelete(req.params.id, (error, deletedActivity) => {
-        //if no Activity is found, let the frontend know with the json error message
+        //if no Activity is found, send json err msg to frontend
         if(!deletedActivity) return res.status(400).json({error: "Activity not found"})
-        //if an error is produced, display it
+        // display error
         if(error) return res.status(400).json({error: error.message})
         return res.status(200).json({
             message: `Activity ${deletedActivity.name} deleted successfully! `
