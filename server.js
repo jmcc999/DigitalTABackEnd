@@ -28,7 +28,7 @@ const MongoDBStore = require('connect-mongodb-session')(session)
 require('./config/db.connection')
 
 //Middleware
-const whitelist = ['http://localhost:3001', `${process.env.FRONTEND_URL}`]
+const whitelist = ['http://localhost:3000', `${process.env.FRONTEND_URL}`]
 const corsOptions = {
 	origin: (origin, callback) => {
 		console.log(whitelist, "WHITELIST")
@@ -77,7 +77,7 @@ app.use(express.urlencoded({extended: true}))
 //routes 
 app.get('/', (req, res) => {
     //change later
-    res.send('Calendar Goes Here')
+    res.send('Stuff Goes Here')
 console.log("working")
 })
 
@@ -94,9 +94,9 @@ console.log("working")
 // 	res.send(`<h1>logout here</h1>`)
 // })
 
-// app.use('/activities', routes.activities)
-app.use('/activities', isAuthenticated, routes.activities);
-app.use('/users', routes.users);
+app.use('/activities', routes.activities)
+// app.use('/activities', isAuthenticated, routes.activities);
+app.use('/users', routes.users)
 
 //listener
 
