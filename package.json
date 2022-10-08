@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/jmcc999/DigitalTABackEnd/issues"
   },
-  "homepage": "https://github.com/jmcc999/DigitalTABackEnd#readme",
+  "homepage": "https://github.com/jmcc999/DigitalTABackEnd",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "connect-mongodb-session": "^3.1.1",

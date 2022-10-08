@@ -6,9 +6,7 @@ require('dotenv').config()
 const express = require('express')
 
 //internal modules
-const routes = require('./routes');
-
-const bcrypt = require('bcrypt')
+const routes = require('./routes')
 
 //import cors
 const cors = require('cors')
@@ -16,14 +14,18 @@ const cors = require('cors')
 // setup SESSION_SECRET Here
 const session = require('express-session')
 
-//express instance 
-const app = express()
-
 //port
 const PORT = process.env.PORT || 3001
 
 //DB connection
 const MongoDBStore = require('connect-mongodb-session')(session)
+
+//express instance 
+const app = express()
+
+app.use(express.json())
+
+app.use(express.urlencoded({extended: true}))
 
 require('./config/db.connection')
 
@@ -71,12 +73,11 @@ const isAuthenticated = (req, res, next) => {
 	}
 }
 
-app.use(express.json())
-app.use(express.urlencoded({extended: true}))
+
 
 //routes 
-app.get('/', (req, res) => {
-    //change later
+app.get('/', function (req, res) {
+
     res.send('Stuff Goes Here')
 console.log("working")
 })

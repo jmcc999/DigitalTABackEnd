@@ -1,4 +1,4 @@
 module.exports = {
-    activities: require('./activities.routes.js'),
-    users: require('./users.routes.js'),
+    activities: require('./activities.routes'),
+    users: require('./users.routes'),
 }

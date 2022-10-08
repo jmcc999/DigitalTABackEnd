@@ -1,5 +1,5 @@
 module.exports = {
     //key: value pair
-    activities: require('./activities.ctrls.js'),
-    users: require('./users.ctrls.js'),
+    activities: require('./activities.ctrls'),
+    users: require('./users.ctrls'),
 }
