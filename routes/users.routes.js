@@ -1,11 +1,12 @@
 const express = require('express')
 
+
 const router = express.Router()
 
 /* == CTRLS == */
 const ctrls = require('../controllers')
 
-/* http://localhost:3000/users */
+/* http://localhost:3001/users */
 
 router.post('/signup', ctrls.users.signup)
 router.post('/login', ctrls.users.login)
